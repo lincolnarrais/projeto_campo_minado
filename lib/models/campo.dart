@@ -41,8 +41,8 @@ class Campo {
       throw ExplosaoException();
     }
 
-    /// Recursivamente chama [abrir()] nos vizinhos até que
-    /// pelo menos um deles esteja minado.
+    /// Recursivamente chama o método [abrir] nos vizinhos
+    /// até que pelo menos um deles contenha uma mina.
     if (vizinhancaSegura) {
       vizinhos.forEach((v) => v.abrir());
     }
@@ -102,7 +102,7 @@ class Campo {
     return vizinhos.every((v) => !v.minado);
   }
 
-  /// Usa o filtro [where()] para retornar a quantidade de
+  /// Usa o filtro [where] para retornar a quantidade de
   /// vizinhos que contêm uma mina.
   int get qtdeMinasNaVizinhanca {
     return vizinhos.where((v) => v.minado).length;
