@@ -16,6 +16,8 @@ class Campo {
     @required this.coluna,
   });
 
+  /// Chamado pelo construtor de [Tabuleiro] no início ou
+  /// reinício do jogo.
   void adicionarVizinho(Campo vizinho) {
     final deltaLinha = (linha - vizinho.linha).abs();
     final deltaColuna = (coluna - vizinho.coluna).abs();
@@ -48,7 +50,7 @@ class Campo {
     }
   }
 
-  /// Chamado por [] ao fim do jogo.
+  /// Chamado por [Tabuleiro] ao fim do jogo.
   void revelarBomba() {
     if (_minado) {
       _aberto = true;
